@@ -14,7 +14,7 @@ export const LoadPreviousButton = () => {
   return showPreviousButton ? (
     <div onClick={loadPrevious} className={loadPreviousClass}>
       <h4 style={{ paddingTop: 10, paddingBottom: 10 }}>
-        {"Load Previous Block"}
+        Load Previous Block
       </h4>
     </div>
   ) : (
