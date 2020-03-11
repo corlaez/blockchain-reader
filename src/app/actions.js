@@ -13,9 +13,7 @@ export const updateLatest = async ({ state, effects }) => {
         state.blocks[0] = latest;
       } else if (firstblock.height + 1  === latest.height){
         // Add latest on the top
-        console.log(state.blocks)
         state.blocks.unshift(latest);
-        console.log(state.blocks)
       } else {
         // Override blocks with an array of latest
         state.blocks.length = 0;
