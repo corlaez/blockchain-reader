@@ -14,7 +14,8 @@ export const BlockExplorerHeader = props => {
       <br />
       <br />
       <h2>Block Explorer</h2>
-      Enter a block hash (legnth: 64) to see it's information:
+      Display blocks information and allows to get the previous block on the chain.<br/>
+      Enter a block's hash (length: 64) to jump to that part of the block chain:
       <br />
       <textarea
         rows="2"
@@ -25,9 +26,9 @@ export const BlockExplorerHeader = props => {
         size="64"
         placeholder="Hash Search"
       />
-      <div style={{ display: "flex" }}>
+      <div style={{marginTop: 5}}>
         <span className={buttonClass} onClick={updateLatest}>
-          {true ? "Update latest" : "Go to Latest"}
+          Jump to Latest
         </span>
       </div>
     </div>

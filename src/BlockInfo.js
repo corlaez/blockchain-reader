@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import JsonView from "react-json-view";
+import chain from "./chain.png"
 
 export const BlockInfo = ({ isLatest, block, setTxHash }) => {
-  // next_block and weight are not documented, ignore.
   const { tx, ...blockJsonView } = block;
   // Function that displays the transaction detail
   const viewTransaction = ({ name, value }) => {
@@ -26,19 +26,18 @@ export const BlockInfo = ({ isLatest, block, setTxHash }) => {
         Block {block.height} {isLatest(block) && "(latest)"}
       </h4>
       <JsonView {...jsonViewProps} collapsed name="data" src={blockJsonView} />
-      <div>
         Additionally, there is a "tx" array with {txLength} transactions
-      </div>
-      Show transaction with index:{" "}
-      <input value={index} onChange={changeIndex} size={5} />
+      <div>Show transaction with index:{" "}
+      <input value={index} onChange={changeIndex} size={5} /></div>
       {index !== "" && (
         <JsonView
           {...jsonViewProps}
-          name={"tx[" + index + "]"}
+          name={"data.tx[" + index + "]"}
           src={tx[index]}
           onSelect={viewTransaction}
         />
       )}
+      <img style={{marginTop:-30, marginBottom: -30, zIndex: 20}} src={chain} width="40px" alt=""/>
     </div>
   );
 };
