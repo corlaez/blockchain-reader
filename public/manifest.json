@@ -1,0 +1,18 @@
+{
+    "short_name": "Blockchain Reader",
+    "name": "Blockchain Reader",
+    "description": "A reader of blocks and transactions of blockchain.com",
+    "icons": [
+      {
+        "src": "/chain.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#3367D5",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D5"
+  }
+  
