@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "axios": "0.19.2",
+    "node-sass": "^4.13.1",
     "overmind": "23.0.1",
     "overmind-react": "24.0.1",
     "react": "16.12.0",
