@@ -1,11 +1,15 @@
 export const updateLatest = async ({ state, effects }) => {
   if (state.loading) return;
   state.loading = true;
-  const latest = await effects.getLatestBlock();
-  state.latest = latest;
-  state.blockHash = latest.hash;
-  state.blocks = [latest];
-  state.loading = false;
+  try {
+    const latest = await effects.getLatestBlock();
+    state.latest = latest;
+    state.blockHash = latest.hash;
+    state.blocks = [latest];
+  } catch (e) {
+  } finally {
+    state.loading = false;
+  }
 };
 
 export const searchTransaction = ({ state }) => {
@@ -21,9 +25,9 @@ export const setTxHash = ({ state }, value) => {
 };
 
 export const loadPrevious = async ({ state, effects }) => {
-  if (state.loading) return;
-  state.loading = true;
   const blocks = state.blocks;
+  if (state.loading || blocks.length === 0) return;
+  state.loading = true;
   const prevBlock = blocks[blocks.length - 1].prev_block;
   try {
     const block = await effects.getBlock(prevBlock);
