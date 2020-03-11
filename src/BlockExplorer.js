@@ -9,6 +9,7 @@ import { useApp } from "./app/config";
 export const BlockExplorer = () => {
   const app = useApp();
   const txHash = app.state.txHash;
+  const loading = app.state.loading;
   const blocks = app.state.blocks;
   const latest = app.state.latest;
 
@@ -30,9 +31,10 @@ export const BlockExplorer = () => {
           />
         ))}
         <LoadPreviousButton />
+        { loading && <div className="loader"/> }
       </>
     ) : (
-      <h2>Loading</h2>
+      <div className="loader"/>
     )
   ) : (
     <TxView />
