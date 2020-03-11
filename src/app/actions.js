@@ -5,7 +5,26 @@ export const updateLatest = async ({ state, effects }) => {
     const latest = await effects.getLatestBlock();
     state.latest = latest;
     state.blockHash = latest.hash;
-    state.blocks = [latest];
+
+    const firstblock = state.firstBlock
+    if(firstblock) {
+      if(firstblock.height === latest.height) {
+        // Replace first block only
+        state.blocks[0] = latest;
+      } else if (firstblock.height + 1  === latest.height){
+        // Add latest on the top
+        console.log(state.blocks)
+        state.blocks.unshift(latest);
+        console.log(state.blocks)
+      } else {
+        // Override blocks with an array of latest
+        state.blocks.length = 0;
+        state.blocks.push(latest);
+      }
+    } else {
+      // blocks is empty. Initialize
+      state.blocks = [latest];
+    }
   } catch (e) {
   } finally {
     state.loading = false;

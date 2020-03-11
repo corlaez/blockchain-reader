@@ -1,4 +1,3 @@
-import { createOvermind } from "overmind";
 import { createHook } from "overmind-react";
 import { state } from "./state";
 import * as actions from "./actions";
@@ -8,11 +7,12 @@ const onInitialize = async ({ actions }) => {
   actions.updateLatest();
 };
 
-export const app = createOvermind({
+// for testing
+export const config ={
   state,
   actions,
   effects,
   onInitialize
-});
+};
 
 export const useApp = createHook();

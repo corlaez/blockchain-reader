@@ -4,6 +4,9 @@ import { BlockExplorer } from "./BlockExplorer";
 import "./styles.scss";
 import { Provider } from "overmind-react";
 import { app } from "./app/config";
+import { createOvermind } from "overmind";
+
+const app = createOvermind(config);
 
 const rootElement = document.getElementById("root");
 
