@@ -24,7 +24,7 @@ export const TxView = props => {
       <br />
       <br />
       <h2>Search Transaction</h2>
-      Enter a transaction hash (length: 64) to see it's information:
+      Enter the transaction's hash (length: 64) to see it's information:
       <br />
       <textarea
         rows="2"
