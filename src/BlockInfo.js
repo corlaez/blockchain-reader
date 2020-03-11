@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import JsonView from "react-json-view";
-import chain from "./chain.png"
 
 export const BlockInfo = ({ isLatest, block, setTxHash }) => {
   const { tx, ...blockJsonView } = block;
@@ -37,7 +36,7 @@ export const BlockInfo = ({ isLatest, block, setTxHash }) => {
           onSelect={viewTransaction}
         />
       )}
-      <img style={{marginTop:-30, marginBottom: -30, zIndex: 20}} src={chain} width="40px" alt=""/>
+      <img style={{marginTop:-30, marginBottom: -30, zIndex: 20}} src={"/chain.png"} width="40px" alt=""/>
     </div>
   );
 };
