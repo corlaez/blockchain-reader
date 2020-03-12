@@ -8,16 +8,7 @@ import { useApp } from "./app/config";
 // Components
 export const BlockExplorer = () => {
   const app = useApp();
-  const txHash = app.state.txHash;
-  const loading = app.state.loading;
-  const blocks = app.state.blocks;
-  const latest = app.state.latest;
-
-  const setTxHash = app.actions.setTxHash;
-
-  const isLatest = block =>
-    latest && latest.height === block.height && latest.hash === block.hash;
-
+  const {txHash, loading, blocks} = app.state;
   return txHash == null ? (
       <>
         <BlockExplorerHeader />
@@ -25,8 +16,6 @@ export const BlockExplorer = () => {
           <BlockInfo
             key={block.hash}
             block={block}
-            isLatest={isLatest}
-            setTxHash={setTxHash}
           />
         ))}
         <LoadPreviousButton />

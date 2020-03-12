@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import JsonView from "react-json-view";
+import { useApp } from "./app/config";
 
-export const BlockInfo = ({ isLatest, block, setTxHash }) => {
+export const BlockInfo = ({ block }) => {
+  const app = useApp();
+  const { latest } = app.state;
+  const { setTxHash } = app.actions;
+  const isLatest = block => block.hash === latest.hash && block.height === latest.height;
   const { tx, ...blockJsonView } = block;
   // Function that displays the transaction detail
   const viewTransaction = ({ name, value }) => {
