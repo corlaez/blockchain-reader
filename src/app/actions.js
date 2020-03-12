@@ -56,8 +56,8 @@ export const loadPrevious = async ({ state, effects }) => {
 };
 
 export const loadTransaction = async ({ state, effects }) => {
-  if (state.loading) return;
-  state.loading = true;
+  if (state.txLoading) return;
+  state.txLoading = true;
   try {
     const tx = await effects.getTransaction(state.txHash);
     state.transaction = tx;
@@ -67,7 +67,7 @@ export const loadTransaction = async ({ state, effects }) => {
     else
       state.txHash = ""
   } finally {
-    state.loading = false;
+    state.txLoading = false;
   }
 };
 

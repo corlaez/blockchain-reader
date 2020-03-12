@@ -5,7 +5,7 @@ import { useApp } from "./app/config";
 // Components
 export const TxView = props => {
   const app = useApp();
-  const { txHash, loading, transaction } = app.state;
+  const { txHash, txLoading: loading, transaction } = app.state;
   const { loadTransaction, setTxHash, syncTxHash, blockExplorer } = app.actions;
   const transactionHash = transaction && transaction.hash;
   // Recover the txHash value from transaction if it makes sense

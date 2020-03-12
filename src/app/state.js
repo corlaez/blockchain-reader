@@ -4,6 +4,8 @@ export const state = {
   blocks: [],
   txHash: null,
   transaction: null,
+  loading: false,
+  txLoading: false,
   get firstBlock() {
     const blocks = this.blocks;
     if (blocks.length > 0) return this.blocks[0]
