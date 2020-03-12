@@ -1,4 +1,3 @@
-
 export const state = {
   latest: null,
   blockHash: "",

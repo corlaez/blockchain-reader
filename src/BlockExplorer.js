@@ -19,7 +19,6 @@ export const BlockExplorer = () => {
     latest && latest.height === block.height && latest.hash === block.hash;
 
   return txHash == null ? (
-    blocks.length > 0 ? (
       <>
         <BlockExplorerHeader />
         {blocks.map(block => (
@@ -33,9 +32,6 @@ export const BlockExplorer = () => {
         <LoadPreviousButton />
         { loading && <div className="loader"/> }
       </>
-    ) : (
-      <div className="loader"/>
-    )
   ) : (
     <TxView />
   );

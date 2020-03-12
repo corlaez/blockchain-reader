@@ -9,7 +9,7 @@ export const LoadPreviousButton = () => {
     "container " + (loading ? "disabled-button" : "button");
 
   const { loadPrevious } = app.actions;
-  const { showPreviousButton } = app.state;
+  const { showPreviousButton, blocks } = app.state;
 
   return showPreviousButton ? (
     <div onClick={loadPrevious} className={loadPreviousClass}>
@@ -18,6 +18,6 @@ export const LoadPreviousButton = () => {
       </h4>
     </div>
   ) : (
-    "End of the chain"
+    blocks.length > 0 && "End of chain"
   );
 };
